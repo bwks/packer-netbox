@@ -80,7 +80,7 @@ virt-install \
 
    ```bash
    sudo -u postgres psql -c "ALTER USER netbox WITH PASSWORD 'new-secure-password';"
-   sudo vim /opt/netbox/netbox/netbox/configuration.py
+   sudo sed -i "s/'PASSWORD': 'netbox'/'PASSWORD': 'new-secure-password'/" /opt/netbox/netbox/netbox/configuration.py
    sudo systemctl restart netbox netbox-rq
    ```
 
